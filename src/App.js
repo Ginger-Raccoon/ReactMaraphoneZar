@@ -1,8 +1,8 @@
 
 import './App.css';
-import Header from './components/Header/Header';
-import Layout from './components/Layout/Layout';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header';
+import Layout from './components/Layout';
+import Footer from './components/Footer';
 import bgImage from  './assets/bg3.jpg';
 
 const  App = () =>  {
