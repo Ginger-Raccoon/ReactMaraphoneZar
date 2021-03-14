@@ -15,7 +15,7 @@ const Layout = ({title, children, colorBg, urlBg}) => {
                             <span className={s.separator} />
                         </div>
                         <div className={`${s.desc} ${s.full}`}>
-                            <p>{children}</p>
+                            <div>{children}</div>
                         </div>
                     </article>
                 </div>
