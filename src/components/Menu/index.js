@@ -1,10 +1,7 @@
-import {useState} from 'react';
-import cn from 'classnames';
 
 import s from './stule.module.css';
 
 const Menu = ({ state }) => {
-    console.log(state)
     return(
         <>
             <div className={`${s.menuContainer} ${state ? s.active : s.deactive}`}>

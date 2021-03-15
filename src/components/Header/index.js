@@ -2,7 +2,6 @@ import s from './style.module.css';
 
 const Header = ({title, descr, onClickButton}) => {
     const handlerClick = () => {
-        console.log('####: <Header />')
         onClickButton && onClickButton('game');
     }
     return (
@@ -12,7 +11,7 @@ const Header = ({title, descr, onClickButton}) => {
                 <div className={s.container}>
                     <h1>{title}</h1>
                     <p>{descr}</p>
-                    <button onClick={handlerClick}>
+                    <button className={s.button} onClick={handlerClick}>
                         Start Game
                     </button>
                 </div>
