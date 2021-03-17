@@ -82,26 +82,20 @@
     line-height: 65px;
 }
 
-.container p {
-    font-size: 28px;
-    font-weight: normal;
-    color: #fafafa;
-    line-height: 32px;
-}
-
 .button,
 .button:visited {
-       width: 100%;
-       max-width: 240px;
-       padding: 1rem;
-       border: 1px solid #fafafa;
-       color: #fafafa;
-       text-align: center;
-       text-transform: uppercase;
-       font-size: 1rem;
-       transition: all ease-in-out .25s;
-       cursor: pointer;
-       box-sizing: border-box;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 240px;
+    padding: 1rem;
+    border: 1px solid #fafafa;
+    color: #fafafa;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all ease-in-out .25s;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .button,
