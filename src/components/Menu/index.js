@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import ROUTES from './assets/menu__item.json';
 import MenuItem from "../Menu__item";
-import s from './stule.module.css';
+import s from './style.module.css';
+import PokemonCard from "../PokemonCard";
 
 const Menu = ({ state }) => {
     return(
@@ -12,6 +13,7 @@ const Menu = ({ state }) => {
                     <ul>
                         {
                             ROUTES.map(item => <MenuItem
+                                key={item.id}
                                 link={item.link}
                                 name={item.name}
                             />)

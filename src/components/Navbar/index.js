@@ -3,13 +3,12 @@ import cn from 'classnames';
 
 import s from './style.module.css';
 
-const NavBar = ({onClickButton}) => {
-    const [isActive, setActive] = useState(false);
-
-    const handlerClick = () => {
-        setActive(!isActive)
-        onClickButton(isActive);
+const NavBar = ({ onClickButton, state }) => {
+    const handlerClickButton = () => {
+        onClickButton && onClickButton();
     }
+
+
     return(
         <>
             <nav className={s.root}>
@@ -17,7 +16,7 @@ const NavBar = ({onClickButton}) => {
                     <p className={s.brand}>
                         LOGO
                     </p>
-                    <a className={cn(s.menuButton, {[s.active] : isActive})} onClick={handlerClick}>
+                    <a className={cn(s.menuButton, {[s.active] : state})} onClick ={ handlerClickButton }>
                         <span />
                     </a>
                 </div>
@@ -27,3 +26,8 @@ const NavBar = ({onClickButton}) => {
 }
 
 export default NavBar;
+
+// const handlerClick = () => {
+//     setActive(!isActive)
+//     onClickButton(isActive);
+// }

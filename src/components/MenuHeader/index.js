@@ -4,13 +4,13 @@ import NavBar from "../Navbar";
 import Menu from "../Menu";
 const MenuHeader = () => {
     let [isActive, setActive] = useState(false);
-    const handlerClickButton = (isActive) => {
+    const handlerClickButton = () => {
         setActive(!isActive)
     }
     return(
         <>
             <Menu  state={ isActive } />
-            <NavBar onClickButton={handlerClickButton} />
+            <NavBar state={ isActive }  onClickButton={handlerClickButton}/>
         </>
     )
 };
