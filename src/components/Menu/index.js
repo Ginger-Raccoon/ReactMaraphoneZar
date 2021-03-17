@@ -1,5 +1,6 @@
 import cn from 'classnames';
-
+import ROUTES from './assets/menu__item.json';
+import MenuItem from "../Menu__item";
 import s from './stule.module.css';
 
 const Menu = ({ state }) => {
@@ -9,26 +10,12 @@ const Menu = ({ state }) => {
                 <div className={s.overlay} />
                 <div className={s.menuItems}>
                     <ul>
-                        <li>
-                            <a href="#welcome">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#game">
-                                GAME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#about">
-                                ABOUT
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact">
-                                CONTACT
-                            </a>
-                        </li>
+                        {
+                            ROUTES.map(item => <MenuItem
+                                link={item.link}
+                                name={item.name}
+                            />)
+                        }
                     </ul>
                 </div>
             </div>
