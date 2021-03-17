@@ -1,10 +1,11 @@
+import cn from 'classnames';
 
 import s from './stule.module.css';
 
 const Menu = ({ state }) => {
     return(
         <>
-            <div className={`${s.menuContainer} ${state ? s.active : s.deactive}`}>
+            <div className={cn(s.menuContainer, {[s.active] : state})}>
                 <div className={s.overlay} />
                 <div className={s.menuItems}>
                     <ul>
