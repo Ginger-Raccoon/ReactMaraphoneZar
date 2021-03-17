@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import NavBar from "../Navbar";
 import Menu from "../Menu";
+
 const MenuHeader = () => {
     let [isActive, setActive] = useState(false);
     const handlerClickButton = () => {
@@ -9,7 +10,7 @@ const MenuHeader = () => {
     }
     return(
         <>
-            <Menu  state={ isActive } />
+            <Menu  state={ isActive } onClickButton={handlerClickButton}/>
             <NavBar state={ isActive }  onClickButton={handlerClickButton}/>
         </>
     )
