@@ -1,10 +1,14 @@
+import {Link} from "react-router-dom";
 import cn from 'classnames';
-import ROUTES from './assets/menu__item.json';
-import MenuItem from "../Menu__item";
-import s from './style.module.css';
-import PokemonCard from "../PokemonCard";
 
-const Menu = ({ state }) => {
+import ROUTES from './assets/menu__item.json';
+
+import s from './style.module.css';
+
+const Menu = ({ onClickButton, state }) => {
+    const handlerClickButton = () => {
+        onClickButton && onClickButton();
+    }
     return(
         <>
             <div className={cn(s.menuContainer, {[s.active] : state})}>
@@ -12,11 +16,13 @@ const Menu = ({ state }) => {
                 <div className={s.menuItems}>
                     <ul>
                         {
-                            ROUTES.map(item => <MenuItem
-                                key={item.id}
-                                link={item.link}
-                                name={item.name}
-                            />)
+                            ROUTES.map(({link, name}, index) => (
+                                <li key={index} onClick={handlerClickButton}>
+                                    <Link to={link}>
+                                        {name}
+                                    </Link>
+                                </li>
+                            ))
                         }
                     </ul>
                 </div>
