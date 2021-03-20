@@ -8,20 +8,13 @@ import s from './style.module.css';
 import Layout from "../../components/Layout";
 
 const GamePage = () => {
-    const pokemonArr = POKEMONS;
-    const [isData, setData] = useState(pokemonArr);
-    const  history = useHistory();
+    const history = useHistory();
+    const [pokemon, setPokemon] = useState(POKEMONS)
     const handlerClick = () => {
         history.push('/')
     }
     const choiceCard = (id) => {
-        const res =isData.filter(item => {
-            if(item.id === Number(id)) {
-                item["active"] = true
-            }
-            return true
-        });
-        setData(res)
+        setPokemon(prevState => prevState.map(item => item.id === id ? { ...item, active: !item.active } : item))
     }
     return (
         <>
@@ -37,15 +30,15 @@ const GamePage = () => {
             <Layout colorBg='#181d23'>
                 <div className={s.flex}>
                     {
-                        isData.map(item => <PokemonCard
+                        pokemon.map(item => <PokemonCard
                             key={item.id}
                             name={item.name}
                             type={item.type}
                             values={item.values}
                             img={item.img}
                             id={item.id}
-                            choice={choiceCard}
                             active={item.active}
+                            handleClick={choiceCard}
                         />)
                     }
                 </div>

@@ -5,16 +5,11 @@ import cardBackSide from '../../assets/card-back-side.jpg';
 
 import s from './style.module.css';
 
-const PokemonCard = ({type, values, img, name, id, choice, active}) => {
-    const handlerClick = (item) => {
-        const id = item.currentTarget.id;
-        console.log(id)
-        choice && choice(id);
-    }
+const PokemonCard = ({type, values, img, name, id, handleClick, active}) => {
     return(
         <>
-            <div className={s.root} >
-                <div className={cn(s.pokemonCard, {[s.active] : active})} onClick={handlerClick} id={id} >
+            <div className={s.root}>
+                <div className={cn(s.pokemonCard, {[s.active] : active})} onClick={() => {handleClick(id) }}>
                     <div className={s.cardFront}>
                         <div className={`${s.wrap} ${s.front}`}>
                             <div className={`${s.pokemon} ${s[type]}`}>
