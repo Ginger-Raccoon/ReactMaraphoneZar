@@ -1,4 +1,4 @@
-import {useState} from 'react';
+
 import cn from 'classnames';
 
 import s from './style.module.css';
@@ -26,8 +26,3 @@ const NavBar = ({ onClickButton, state }) => {
 }
 
 export default NavBar;
-
-// const handlerClick = () => {
-//     setActive(!isActive)
-//     onClickButton(isActive);
-// }
