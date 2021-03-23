@@ -33,14 +33,13 @@ const GamePage = () => {
                     pokemon.active = true;
                     database.ref('pokemons/' + objID).update({
                         active: pokemon.active,
-                    }, (error) => {
-                        if ( !error ){
-                            console.log("update complete!")
-                        }
-                        else{
-                            console.log("update error!")
-                        }
-                    })
+                    }, )
+                        .then(() => {
+                            console.log('update complete')
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
                 };
 
                 acc[item[0]] = pokemon;
@@ -54,24 +53,24 @@ const GamePage = () => {
             if (active === true ) {
                 database.ref('pokemons/' + key).update({
                     active: false,
-                }, (error) => {
-                    if (!error) {
+                },)
+                    .then(() => {
                         updateData()
-                        console.log('update complete!')
-                    } else {
-                        console.log('update error!')
-                    }
-                })
+                        console.log('update complete')
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             }
         }, {});
     }
 
     const addCard = () => {
         const obj = pokemons;
-        let keys = Object.keys(pokemons);
+        let keys = Object.keys(obj);
+        console.log(keys)
         const newKey = database.ref().child('pokemons').push().key;
-        console.log(Math.floor(Math.random() * (keys.length - 1)) + 1)
-        database.ref('pokemons/' + newKey).set(obj[keys[keys.length - (Math.floor(Math.random() * (keys.length - 1)) + 1)]]);
+        database.ref('pokemons/' + newKey).set(obj[keys[Math.floor(Math.random() * (5 - 0 + 1)) + 0]])
         updateData();
     }
 
