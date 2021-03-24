@@ -82,6 +82,11 @@
     line-height: 65px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .button,
 .button:visited {
     margin-top: 20px;

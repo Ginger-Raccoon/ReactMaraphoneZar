@@ -3,10 +3,7 @@ import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import bgImage from  '../../assets/bg3.jpg';
 
-import s from './style.module.css';
-
 const  HomePage = ({ onChangePage }) => {
-
     const title = 'This is title';
     const descr = 'This is Description!';
     const handlerClickButton = (page) => {

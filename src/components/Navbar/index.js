@@ -1,4 +1,4 @@
-import {useState} from 'react';
+
 import cn from 'classnames';
 
 import s from './style.module.css';
@@ -16,7 +16,7 @@ const NavBar = ({ onClickButton, state }) => {
                     <p className={s.brand}>
                         LOGO
                     </p>
-                    <a className={cn(s.menuButton, {[s.active] : state})} onClick ={ handlerClickButton }>
+                    <a href="#" className={cn(s.menuButton, {[s.active] : state})} onClick ={ handlerClickButton }>
                         <span />
                     </a>
                 </div>
@@ -26,8 +26,3 @@ const NavBar = ({ onClickButton, state }) => {
 }
 
 export default NavBar;
-
-// const handlerClick = () => {
-//     setActive(!isActive)
-//     onClickButton(isActive);
-// }

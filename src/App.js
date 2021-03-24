@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import {useRouteMatch, Route, Switch, Redirect} from "react-router-dom";
 import cn from 'classnames';
 
@@ -13,10 +13,6 @@ import Footer from "./components/Footer";
 import s from "./style.module.css"
 
 const App = () => {
-    const [page, setPage] = useState('app')
-    const handlerChangePage = (page) => {
-        setPage(page);
-    }
     const match = useRouteMatch('/')
     return(
             <Switch>
