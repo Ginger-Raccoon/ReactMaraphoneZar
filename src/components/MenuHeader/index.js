@@ -9,10 +9,10 @@ const MenuHeader = () => {
         setActive(!isActive)
     }
     return(
-        <>
+        <div>
             <Menu  state={ isActive } onClickButton={handlerClickButton}/>
             <NavBar state={ isActive }  onClickButton={handlerClickButton}/>
-        </>
+        </div>
     )
 };
 
