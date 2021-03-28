@@ -4,39 +4,31 @@ import { useState } from 'react'
 import StartPage from "../Game/routes/Start";
 import BoardPage from "../Game/routes/Board";
 import FinishPage from "../Game/routes/Finish";
-
-import { PokemonContext } from "../../context/pokemonContext";
+import {PokemonContext} from "../../context/pokemonContext";
 
 const GamePage = () => {
-    const match = useRouteMatch();
     const [selectedPokemons, setSelectedPokemons] = useState({})
-    const [finishBoard, setFinishBoard] = useState([]);
-
-    const handleSelectPokemons = (key, pokemon) => {
-        setSelectedPokemons((prevState) => {
+    const match = useRouteMatch();
+console.log(selectedPokemons)
+    const handleSelectedPokemons = (key, pokemon) => {
+        setSelectedPokemons(prevState => {
             if (prevState[key]) {
                 const copyState = {...prevState};
                 delete copyState[key]
+
                 return copyState
             }
-                const newState = { ...prevState, [key]: pokemon};
-                return newState;
+            return {
+                ...prevState,
+                [key]: pokemon,
+            }
         })
     }
-    const clearPokemonContext = () => {
-     setSelectedPokemons({});
-     setFinishBoard({});
-    }
     return (
-        <PokemonContext.Provider value={
-            {
-                pokemons: selectedPokemons,
-                handleSelectPokemons,
-                finishBoard: finishBoard,
-                setFinishBoard,
-                clearPokemonContext
-            }
-        }>
+        <PokemonContext.Provider value={{
+            pokemons: selectedPokemons,
+            onSelectedPokemons: handleSelectedPokemons
+        }}>
             <Switch>
                 <Route path={`${match.path}/`} exact component={StartPage} />
                 <Route path={`${match.path}/board`} component={BoardPage} />
